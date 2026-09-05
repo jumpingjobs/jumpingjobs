@@ -6,9 +6,12 @@ description: >-
   Resumes are lossy projections pulled from it. Use to initialize a new applicant
   (questionnaire-driven interview), to capture anything newly learned ("remember that I...",
   "I also did...", "my <language> is limited", a new metric or role), or to feed tune-resume,
-  assess-job, and find-jobs with accurate detail. Triggers: "create a profile", "init
-  applicant", "update my profile", "remember this about me", "add this to my experience", or
-  whenever a fact about an applicant surfaces that the profile does not yet capture.
+  assess-job, and find-jobs with accurate detail. Also use to capture post-interview feedback
+  or a rejection reason after an interview. Triggers: "create a profile", "init applicant",
+  "update my profile", "remember this about me", "add this to my experience", "we lost the X
+  role", "capture their feedback", "they rejected me because...", a rejection or feedback
+  email arriving after an interview, or whenever a fact about an applicant surfaces that the
+  profile does not yet capture.
 user-invocable: true
 license: MIT
 ---
@@ -48,6 +51,9 @@ Keep the two from drifting: when content changes, update `profile.md`, not the H
   stated constraint or strength) back into `profile.md`. The tuning dialogue is one of the
   richest sources of profile updates. Never let an insight live only inside a single tuned
   resume.
+- **Learn from outcomes** — after any interview that produces feedback or a rejection reason,
+  capture it via Operation 3. External feedback is the most valuable and most perishable input
+  the search produces; a rejection reduced to "lost the role" throws it away.
 
 ## Operation 1: Init a new applicant
 
@@ -95,6 +101,49 @@ Keep the two from drifting: when content changes, update `profile.md`, not the H
 4. Add a dated line to `## Change log`.
 5. If the fact is a hard constraint (language, education, salary, location), make sure it is in
    `## Hard constraints & filters` so assessments respect it.
+
+## Operation 3: Capture interview feedback
+
+**Trigger this whenever an interview produces feedback** — a rejection email with reasons,
+verbal feedback relayed after a call, a recruiter's "they felt that...", or even the
+applicant's own fresh self-assessment right after a round. This is one of the highest-value
+inputs to the profile: it is external, specific, and tells us what to fix. Losing it (or
+reducing it to "got rejected") wastes the most expensive signal the search produces.
+
+1. **Preserve the feedback verbatim first.** Rejection feedback is carefully worded and easy
+   to soften or distort in paraphrase. Quote the exact sentences into the job-posting note
+   *and* mine them for the profile. Record **who** gave it (name, role), **which company +
+   round**, and the **date**.
+2. **Separate signal from boilerplate.** Rejection emails mix real, specific feedback with
+   kind-but-empty filler ("not the right fit at this time", "a different match for the
+   scope"). Flag which is which — act on the specific, discount the generic. Note honestly
+   that feedback is often softened, so the real gap may be sharper than the words.
+3. **Classify each point as capability vs demonstration.** A *capability* gap = the applicant
+   genuinely lacks the skill (record it in `## Open questions / gaps to fill` or as a
+   constraint). A *demonstration* gap = they have the substance but did not convey it in the
+   room (record it as an interview-prep fix). These need opposite responses — do not conflate
+   "can't do it" with "didn't show it." When the feedback contradicts what the profile says
+   the applicant is strong at, it is almost always a demonstration gap, and that is a
+   coachable, high-leverage fix.
+4. **Cross-reference against prior feedback — this is the whole point.** Read the existing
+   `## Interview feedback & recurring patterns` section before writing. If a *new* rejection
+   echoes an *old* one (e.g. "too startup-scale" appearing at two different companies), that
+   is a **recurring pattern** and must be elevated and marked as such — a repeated signal from
+   independent sources is far stronger than either instance alone, and is the thing most worth
+   fixing before the next interview. One-off feedback is noted; repeated feedback is
+   escalated.
+5. **Convert each real item into a concrete, forward-looking fix** — what to do differently in
+   the next interview (a story to lead with, a question to pre-empt, a framing to reach for,
+   named tools/frameworks to be ready to discuss). Vague lessons do not change behavior;
+   "have the eval-harness story ready as a scenario answer, and pre-empt 'which frameworks'
+   with 'built custom, here's why'" does.
+6. **Write it into `## Interview feedback & recurring patterns`** (create the section if
+   absent) and add a dated `## Change log` line. If the feedback reveals a genuine hard
+   constraint or a durable strength/weakness, also update those sections so
+   `/tune-resume` and `/assess-job` benefit.
+7. **Keep the counterweight honest.** Do not over-fit the profile to a single rejection —
+   candidates and recruiters both over-weight one bad stretch. Record the two-sided read:
+   what is real signal, what is likely noise, and how confident we are.
 
 ## Profile template
 
@@ -148,6 +197,12 @@ LangChain)" beats "agents".>
 
 ## Notable / items of interest
 <Memorable differentiators.>
+
+## Interview feedback & recurring patterns
+<External feedback from real interviews. Verbatim where given, with source (company, round,
+who, date). Mark each item capability-gap vs demonstration-gap and give it a concrete
+forward-looking fix. Elevate anything that recurs across >=2 companies — recurring items are
+the priority fixes. End with an honest counterweight: signal vs likely noise.>
 
 ## Open questions / gaps to fill
 <Things to ask the applicant later.>

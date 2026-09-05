@@ -55,6 +55,7 @@ Do not hardcode specific numbers or languages here — read them from `profile.m
 - Location compatible? Yes/No
 - Salary likely meets the profile floor? Yes/No/Unknown
 - Degree hard-required and missing? Yes/No
+- Contract type acceptable? Yes/No
 
 ### Experience Match
 Rate each requirement against the applicant's background:

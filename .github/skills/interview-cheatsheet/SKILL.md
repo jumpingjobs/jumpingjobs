@@ -6,8 +6,10 @@ description: >-
   posting in the same job-postings subfolder, named `<posting-slug>-cheatsheet.md`. Researches
   the company (what they do, the team/interviewer, financials/backing) and maps the applicant's
   profile to the role (why they are the best fit) plus honest gaps, why-this-company, smart
-  questions, and logistics. Triggers: "interview cheat sheet", "cheat sheet for <company>",
-  "prep me for the <company> interview", "create a cheat sheet".
+  questions, and logistics. ALSO captures application form answers verbatim (see "Application
+  form answers" below) whenever answers are drafted for a job application form. Triggers:
+  "interview cheat sheet", "cheat sheet for <company>", "prep me for the <company> interview",
+  "create a cheat sheet", "draft answers for this application form".
 user-invocable: true
 argument-hint: "[company or posting]"
 license: MIT
@@ -16,7 +18,8 @@ license: MIT
 # Interview cheat sheet skill
 
 Produce a tight, high-signal prep doc for a specific interview. **The output is ALWAYS a new
-`.md` file** — do not embed it inside the job-posting note.
+`.md` file** — do not embed it inside the job-posting note. (If you find an older cheat sheet
+embedded in a posting note, migrate it to its own file the next time you touch it.)
 
 ## Output: a new standalone file
 
@@ -38,9 +41,10 @@ Produce a tight, high-signal prep doc for a specific interview. **The output is 
    time, tools (e.g. transcription). Ask the user to paste it if it is not already captured.
 3. **Company research** — use the web (a browser-automation tool against a logged-in session is
    most reliable for JS-rendered pages; plain fetch works for simple pages). Pull: the company
-   about page (team, mission, product, scale), the relevant company/registry source for
-   financials where applicable, recent funding/news. Public profiles of the interviewer where
-   available. Cite sources as links.
+   about page (team, mission, product, scale), the company registry for its jurisdiction for
+   financials where applicable (SEC EDGAR, Companies House, your national register — same
+   sources as `/interview-prep`), recent funding/news. Public profiles of the
+   interviewer where available. Cite sources as links.
 4. **The applicant's profile** — `resume/<slug>/profile.md` for their real strengths, metrics,
    and **hard constraints / honest gaps** (never fabricate; same honesty bar as resume tuning).
 
@@ -113,4 +117,27 @@ this is a pre-interview glance, not an essay.
 
 - Confirm the path to the user and give a short summary of the key points.
 - Add the `Cheat sheet: <slug>-cheatsheet.md` pointer to the posting note.
-- If the interview time is not set yet, note it as TBC.
+- If the interview time is not set yet, note it as TBC and offer to add a calendar event once
+  it is confirmed.
+
+## Application form answers — always capture them here
+
+Many applications replace the cover letter with free-text form questions ("what attracted you
+to this role", "tell us about something you built"). **Whenever answers are drafted for one of
+those forms, they go into the job's cheat sheet** — not only into chat. They are the record of
+what was actually claimed, they are needed verbatim if the process advances, and they are
+reusable raw material for the next similar posting.
+
+Rules for that section:
+
+- **Write the answers as plain paragraphs. Never use `>` blockquotes.** The user copies these
+  straight into web forms, and blockquote prefixes come along with the text.
+- Put each question as a `###` heading with the question text verbatim, and the answer as
+  plain paragraphs beneath it.
+- Head the section with the draft/submitted state: `(drafted YYYY-MM-DD — not yet submitted)`
+  and update it to `(as submitted, YYYY-MM-DD)` once the user confirms they sent it.
+- Follow the answers with a short **"why the answers are shaped this way"** note: the
+  deliberate choices, anything volunteered, and anything deliberately left out (e.g. a degree
+  gap not raised). This is what makes the record useful months later.
+- Never write a claim into a form answer that is not true in `profile.md`. If drafting
+  surfaces a new fact, fold it back into the profile as well.

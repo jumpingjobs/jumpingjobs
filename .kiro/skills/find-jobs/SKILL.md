@@ -48,9 +48,15 @@ browser and extract the result cards with the board's configured extraction scri
 config ships with working extractors for a couple of boards as a starting point; other boards
 need their own selectors (the README is explicit about this).
 
+Prefer a newest-first sort in the search URL — the top of the list is then exactly the delta
+since the last sweep. Decline a cookie banner only if it blocks interaction; otherwise ignore
+it — banners don't block DOM reads.
+
 ## 2. Filter to the profile
 
-Drop noise (roles clearly off the applicant's profile). Keep on-profile roles. Apply hard
+Drop noise (roles clearly off the applicant's profile). Keep on-profile roles — and do not
+down-rank leadership / strategy / architect / advisory roles just because they are not
+hands-on coding; check `profile.md` for whether the applicant is open to them. Apply hard
 constraints as **flags, not silent drops** — still surface a strong role that lists a blocking
 requirement, but mark the risk so the user decides.
 
@@ -58,7 +64,8 @@ requirement, but mark the risk so the user decides.
 
 Remove anything in the dedupe set from step 0. Present a clean table grouped by board with
 **Role · Company · Location · fit / flag**, and explicitly list what was skipped as
-already-tracked. Recommend a few top picks on the applicant's stated priorities.
+already-tracked. Recommend a few top picks on the applicant's stated priorities. Close with a
+one-line tally: N new, N saved, N already-tracked.
 
 ## 4. Scrape the new ones
 

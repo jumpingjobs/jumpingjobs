@@ -25,7 +25,8 @@ Scrape a job posting URL and save it as a structured Markdown file in the job-po
    `grep -rli "<company>"` across the `job-postings/` tree.
    - **If a match exists, do NOT re-scrape.** Tell the user where it lives and its status
      (active / applied / lost / archived), and stop unless they explicitly want it re-scraped
-     or revived. This prevents the duplicate-scrape problem.
+     or revived. This prevents the duplicate-scrape problem (e.g. a role scraped weeks ago and
+     archived getting scraped again under today's date).
 3. Fetch the page content. (A plain web fetch works for most single posting pages. If the page
    is JS-rendered or blocks fetching, use a browser-automation tool against a logged-in
    session.)

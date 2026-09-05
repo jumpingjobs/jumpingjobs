@@ -33,7 +33,10 @@ dossier and a condensed, scannable cheat sheet.
 5. Produce the two output files (see Output Files). Save both in the same folder as the job
    posting (move the posting to `interview/` first if it is not already, via
    `/move-job`).
-6. After writing, show the cheat sheet in the chat and summarize the key points.
+6. After writing, show the cheat sheet in the chat and summarize the key points. Offer to fold
+   durable, non-obvious findings (leadership-turnover patterns, financial red flags,
+   competitive benchmarks) back into `profile.md` or a company note so they survive past this
+   session.
 
 ## Research Plan
 
@@ -60,16 +63,20 @@ Research these threads. Run independent ones in parallel. Cite sources as Markdo
   legacy/migration.
 - **Competitive landscape** — tier it: local/national, regional, global, and emerging/new-wave
   reference points. For each key competitor note model, scale signal, and *why it matters to
-  this company*. Then synthesize: where is this company squeezed, where can it win, where will
+  this company*. Highlight recent exits/acquisitions and funding events that reset category
+  expectations. Then synthesize: where is this company squeezed, where can it win, where will
   it struggle?
 
 ### Research caveats
 
-- Plain web fetch cannot reach paywalled or bot-protected pages (many professional networks and
-  paywalled business press, and some registry tabs that are JS-rendered). Use web search to
-  extract facts from snippets, try secondary sources, and use a logged-in browser-automation
-  tool where needed. If financials cannot be retrieved, say so explicitly and ask the user to
-  paste them. **Do not fabricate numbers.**
+- Plain web fetch cannot reach paywalled or bot-protected pages (LinkedIn returns HTTP 999,
+  much business press is paywalled, and registry financials tabs are often JS-rendered and
+  return empty). Use web search to extract facts from snippets, try secondary sources
+  (Tracxn, Dealroom, CB Insights, plus local tech/business press), and use a logged-in
+  browser-automation tool where needed. If financials cannot be retrieved, say so explicitly
+  and ask the user to paste them — or to save the registry accounts as a PDF for you to read,
+  since registry filings are often downloadable but not scrapable. **Do not fabricate
+  numbers.**
 - Cross-check employee count and other figures across sources; flag discrepancies rather than
   silently picking one.
 - Apply critical analysis: challenge the framing, offer alternative readings of why the role
@@ -81,12 +88,18 @@ Name both after the job posting's basename:
 - `<basename>-interview-prep.md` — the full dossier
 - `<basename>-cheatsheet.md` — the condensed one-pager
 
+`<basename>-cheatsheet.md` is the **same file the `interview-cheatsheet` skill owns** — never
+create a second sheet alongside it. If one already exists, update it in place with the dossier
+findings. The sheet must also carry that skill's fit-first essentials (why you fit, honest
+gaps, tough questions with drafted answers); the structure below adds what only the dossier
+research can supply.
+
 ### Interview-prep dossier structure
 
 ```
 # Interview Prep: <Role> @ <Company>
 
-**Interview date:** <date>  |  **Contact:** <name, title>  |  **Source:** <link>
+**Interview date:** <date>  |  **Contact:** <name, title, phone>  |  **Source:** <link>
 
 ## Company Overview
 ## Product & Market
@@ -110,7 +123,7 @@ Name both after the job posting's basename:
 
 ```
 # <Company> <Role> — Interview Cheat Sheet
-**<Date>** | **<Interviewer>** | Reference: link to the prep dossier
+**<Date>** | **<Interviewer>, <phone>** | Reference: link to the prep dossier
 
 ## 30-second context           (3-4 sentences + any unresolved fact to ask about)
 ## Financial reality           (compact 3-year table + 4-5 bullets incl. payment defaults & runway)
@@ -120,6 +133,7 @@ Name both after the job posting's basename:
 ## Comp framing                 (treat equity soberly given the financials; what to negotiate)
 ## Stack                        (one line + commentary)
 ## Competitive landscape        (tiered tables + a "what this means for positioning" synthesis)
+## Competition-aware questions  (questions that show you understand their market position)
 ## One-liner positioning for yourself   (grounded in the resume)
 ## If you forget everything else, remember   (5-7 must-do bullets)
 ```

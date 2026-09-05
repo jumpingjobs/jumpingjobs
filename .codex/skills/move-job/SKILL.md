@@ -31,10 +31,13 @@ Job postings move through these stages:
 - **`job-postings/applied/`** — Application submitted. Move here after applying.
 - **`job-postings/interview/`** — Got an interview. Move here when invited.
 - **`job-postings/lost/`** — Rejected or withdrawn *after applying*. Move here when the
-  opportunity is closed.
+  opportunity is closed. If the rejection came with any feedback or reason, capture it via
+  the `applicant-profile` skill (its interview-feedback operation) before or right after the
+  move — do not reduce a rejection to just a folder change.
 - **`job-postings/archived/`** — Looked at but **decided not to apply** (fails a hard
   constraint, below level, off-profile). Distinct from `lost/`: nothing was submitted. Future
-  `find-jobs` sweeps treat archived roles as already-seen, so they will not resurface.
+  `$find-jobs` sweeps treat archived roles as already-seen, so they will not
+  resurface.
 
 ## Usage
 

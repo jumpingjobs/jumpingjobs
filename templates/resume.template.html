@@ -5,6 +5,7 @@
   Replace all "Jane Doe" placeholder content with the applicant's real details (pulled from
   profile.md). Keep the section structure and class names intact so /tune-resume can reason
   about it. Style rules: no em/en dashes in copy; keep it to 2 pages; Title Case list items.
+  Do not remove the @page CSS rule: without it this skeleton prints as 4 pages, not 2.
   Sections: header, QUALIFICATIONS (KNOWLEDGE + EXPERIENCE + SKILLS + ITEMS OF INTEREST),
   then SELECT HISTORY (3 most relevant roles, max 5 bullets each).
 -->
@@ -160,6 +161,13 @@
 
     .page-break {
       break-before: page;
+    }
+
+    /* DO NOT REMOVE: without this rule the resume silently prints as 4 pages, not 2.
+       Use "size: A4" in A4 markets. */
+    @page {
+      size: Letter;
+      margin: 0;
     }
 
     @media print {

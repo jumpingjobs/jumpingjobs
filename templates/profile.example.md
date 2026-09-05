@@ -26,6 +26,8 @@ product work with real users.
 - Salary floor: 100,000 (currency) per year -> flag roles likely below this.
 - Location: remote or hybrid within commuting distance of City; not relocating.
 - Contract type: permanent preferred.
+- Never show me: sales, retail, recruiting-agency roles. (Categories `find-jobs` drops as noise
+  without asking.)
 
 ## Preferences & motivations
 Prefers product-focused engineering at an early-to-growth-stage company. Energized by owning a
@@ -68,9 +70,26 @@ maintenance. Open to a lead role with hands-on coding; not interested in pure pe
 ## Notable / items of interest
 - A memorable, differentiating fact about you.
 
+## Interview feedback & recurring patterns
+> External feedback from real interviews. Verbatim where given. Recurring items (>=2
+> companies) are the priority fixes.
+
+- **RECURRING ACROSS 2 COMPANIES — "wanted more platform-scale experience" (DEMONSTRATION
+  gap).** Seen at: 1. Acme Corp final round (2026-01-15), 2. Beta Inc screen (2026-02-03).
+  - Verbatim (Acme, hiring manager Jo): "we felt the scale of systems you've run is a step
+    below what this role operates at."
+  - Classification: profile says distributed-systems work at N users — the substance exists
+    but the story led with product work, not scale. Demonstration gap.
+  - Fix: lead with the N-users scaling story in the first scale question; pre-empt with
+    throughput numbers unprompted.
+- **Counterweight:** two data points, both at large-org roles; likely partly real
+  (mid-size-company background) and partly framing. Confidence: medium.
+
 ## Open questions / gaps to fill
 - Exact metrics for the Startup Inc role.
 - Whether to include the earliest roles.
 
 ## Change log
 - 2026-01-01 — Example profile created.
+- 2026-02-04 — **Captured Beta Inc rejection feedback** (screen, recruiter email): elevated
+  "platform-scale" to a recurring pattern, added the scaling-story fix above.
