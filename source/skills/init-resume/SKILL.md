@@ -37,7 +37,8 @@ does not re-implement the profile questionnaire (that lives in the `applicant-pr
    not found, fetch them from the JumpingJobs repo). Copy:
    - `templates/resume.template.html` -> `resume/<slug>/<slug>-resume.html`
    - `templates/job-boards.example.md` -> `resume/<slug>/job-boards.md` (the user edits this
-     for their country/market later)
+     for their country/market later). Replace its `## Change log` example lines with one real,
+     dated "File created" entry.
    Do not copy `profile.example.md` as the real profile — the next step builds the real one.
 
 4. **Build `profile.md` via the `applicant-profile` skill (Init operation).** Hand off to that

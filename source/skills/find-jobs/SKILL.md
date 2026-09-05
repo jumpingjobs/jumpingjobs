@@ -52,6 +52,28 @@ Prefer a newest-first sort in the search URL — the top of the list is then exa
 since the last sweep. Decline a cookie banner only if it blocks interaction; otherwise ignore
 it — banners don't block DOM reads.
 
+### A zero-hit board is a symptom, not a result
+
+Job sites redesign their markup; extractors rot silently. When an extractor returns **0 cards**,
+never conclude "no new jobs" from that alone — look at the rendered page (snapshot or page text):
+
+- Page genuinely shows no results -> fine; report the board as empty.
+- **Page visibly shows result cards but the extractor returned 0 (or returns obviously mangled
+  titles/URLs) -> the extractor is broken.** Repair it on the spot: inspect the current DOM,
+  rewrite the extractor, and re-run it until it returns the cards you can see on the page. Then
+  **write the fixed extractor back into `job-boards.md`** and add a dated line to its
+  `## Change log` saying what broke and what changed. A repair that lives only in the
+  conversation is lost by the next sweep.
+- Can't repair it (login wall, CAPTCHA, board gone) -> tell the user explicitly that the board
+  is broken and was skipped, and note it in the change log. A silently-skipped board corrupts
+  the "N new" tally.
+
+### Ad-hoc boards become config
+
+If the user asks you to search a board that is not in `job-boards.md`, and you get a working
+search URL + extractor out of it, offer to save it as a new board section so the next sweep
+covers it automatically.
+
 ## 2. Filter to the profile
 
 Drop noise (roles clearly off the applicant's profile). Keep on-profile roles — and do not
@@ -75,7 +97,18 @@ For each new role the user wants saved, run **`/scrape-job`** on its URL
 any hard-constraint hits and a one-line fit read. Then offer `/assess-job` and
 `/tune-resume`.
 
-## 5. Keep the profile current
+## 5. Keep the profile — and the board config — current
 
 If the sweep surfaces a new preference signal (e.g. the applicant reacts to a role type), fold
 it back into `profile.md` via the `applicant-profile` skill.
+
+`job-boards.md` is living config, and this skill is its owner. Beyond extractor repairs
+(step 1), check while the sweep is fresh:
+
+- **Search terms vs. profile.** The `## Default search terms` should mirror the profile's
+  current target roles/lanes. If the profile has moved on (new target lane, dropped one) and
+  the terms haven't, update them and log it.
+- **Dead weight.** A board that has produced nothing relevant across several sweeps is worth
+  flagging to the user — dropping it makes every future sweep faster.
+
+Log any config change as a dated line in the file's `## Change log` (newest first).

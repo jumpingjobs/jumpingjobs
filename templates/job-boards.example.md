@@ -79,3 +79,25 @@ result cards differently. Copy this file to `resume/<slug>/job-boards.md` and ed
 Common boards by market: LinkedIn Jobs and Indeed (global, often gated — a logged-in browser
 session helps), Otta / Welcome to the Jungle (EU), Wellfound (startups, US), and your country's
 national boards.
+
+---
+
+## Maintenance (who keeps this file true)
+
+This file is **living config, not set-and-forget**:
+
+- **`find-jobs` owns the extractors.** Boards redesign their markup and extractors rot
+  silently — a broken extractor looks exactly like "no new jobs." When a board returns 0 cards
+  but the page visibly shows results, `find-jobs` repairs the extractor against the live DOM
+  and writes the fix back here.
+- **`applicant-profile` keeps the search terms honest.** When the profile's target roles/lanes
+  change, the `## Default search terms` above are updated to match — a lane recorded only in
+  `profile.md` never gets swept for.
+- Every change lands as a dated line below, **newest first**, so a sweep can see when a board
+  was last verified working.
+
+## Change log
+
+- YYYY-MM-DD: (example) Finn.no extractor rewritten — result cards moved from `<article>` to
+  `<div data-testid="job-card">` in a site redesign.
+- YYYY-MM-DD: File created from templates/job-boards.example.md.

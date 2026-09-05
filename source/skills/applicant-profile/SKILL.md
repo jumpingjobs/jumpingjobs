@@ -101,6 +101,11 @@ Keep the two from drifting: when content changes, update `profile.md`, not the H
 4. Add a dated line to `## Change log`.
 5. If the fact is a hard constraint (language, education, salary, location), make sure it is in
    `## Hard constraints & filters` so assessments respect it.
+6. **If the fact changes what to search for** — a new target role/lane, a dropped one, a new
+   specialty keyword, a "stop showing me X" — also update `## Default search terms` in the
+   sibling **`job-boards.md`** (same folder), with a dated line in that file's change log.
+   The profile drives *filtering*; `job-boards.md` drives *searching* — a lane recorded only
+   in the profile never gets swept for.
 
 ## Operation 3: Capture interview feedback
 
