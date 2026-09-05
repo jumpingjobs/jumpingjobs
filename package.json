@@ -1,0 +1,46 @@
+{
+  "name": "jumpingjobs",
+  "version": "0.1.0",
+  "description": "Job search and resume toolkit for AI coding agents (Claude Code, Cursor, Copilot, Gemini, Codex, and more).",
+  "type": "module",
+  "bin": {
+    "jumpingjobs": "./bin/jumpingjobs.mjs"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "clean": "node scripts/build.mjs --clean",
+    "rebuild": "node scripts/build.mjs --clean && node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "prepublishOnly": "npm run rebuild"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "source",
+    "templates",
+    "scripts",
+    "bin",
+    ".claude-plugin",
+    ".claude",
+    ".cursor",
+    ".github",
+    ".gemini",
+    ".codex",
+    ".opencode",
+    ".kiro",
+    ".agents"
+  ],
+  "keywords": ["job-search", "resume", "career", "interview", "claude-code", "skills", "agent-skills"],
+  "license": "MIT",
+  "author": "Nicholas Kristoffersen <nick@kristoffersen.io>",
+  "homepage": "https://jumpingjobs.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jumpingjobs/jumpingjobs.git"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

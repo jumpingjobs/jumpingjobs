@@ -1,0 +1,26 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "jumpingjobs",
+  "metadata": {
+    "description": "A job-search and resume toolkit for AI coding agents. Build a durable applicant profile, find and assess roles, tune your resume per posting, and prep for interviews."
+  },
+  "owner": {
+    "name": "Nicholas Kristoffersen",
+    "email": "nick@kristoffersen.io"
+  },
+  "plugins": [
+    {
+      "name": "jumpingjobs",
+      "description": "Job search and resume toolkit: 1 onboarding command, 6 workflow commands, and 2 skills. Build a profile.md source of truth, find/scrape/assess jobs, tune your resume to each posting, and generate interview prep.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Nicholas Kristoffersen",
+        "email": "nick@kristoffersen.io"
+      },
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://jumpingjobs.com",
+      "tags": ["job-search", "resume", "career", "interview", "jobs", "skills", "commands"]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+node_modules/
+*.log
+.DS_Store
+
+# Generated per-harness output is committed (clone-and-go + native Claude plugin needs it).
+# Regenerate with `npm run build`. If you prefer not to commit it, uncomment below and ship
+# only `source/` + the build:
+# .claude/skills/
+# .cursor/skills/
+# .github/skills/
+# .gemini/skills/
+# .codex/skills/
+# .opencode/skills/
+# .kiro/skills/
+# .agents/skills/

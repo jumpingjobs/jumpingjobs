@@ -1,0 +1,12 @@
+{
+  "name": "jumpingjobs",
+  "description": "Job search and resume toolkit: build a profile.md source of truth, find/scrape/assess jobs, tune your resume to each posting, and generate interview prep.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Nicholas Kristoffersen",
+    "email": "nick@kristoffersen.io"
+  },
+  "homepage": "https://jumpingjobs.com",
+  "repository": "https://github.com/jumpingjobs/jumpingjobs",
+  "skills": "./.claude/skills/"
+}
