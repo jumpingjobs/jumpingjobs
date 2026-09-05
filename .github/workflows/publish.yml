@@ -1,15 +1,19 @@
 name: Publish to npm
 
-# Publishes the JumpingJobs CLI/package to npm.
+# Publishes the JumpingJobs CLI/package to npm via trusted publishing (OIDC) —
+# no npm token or repo secret involved.
 # Triggers:
 #   - When you publish a GitHub Release (the normal path).
 #   - Manual run via the Actions tab (workflow_dispatch).
 #
-# Prerequisites (one-time):
-#   1. An npm "Automation" access token saved as the repo secret NPM_TOKEN.
-#   2. The package name in package.json must be available on npm (or scoped, e.g.
-#      @your-scope/jumpingjobs with "publishConfig.access": "public").
-#   3. Bump "version" in package.json before each release (npm rejects a duplicate version).
+# Prerequisites (one-time, on npmjs.com):
+#   1. Configure a trusted publisher for the "jumpingjobs" package:
+#      org/user "jumpingjobs", repository "jumpingjobs", workflow "publish.yml".
+#      (Works before first publish; see https://docs.npmjs.com/trusted-publishers)
+#   2. Bump "version" in package.json before each release (npm rejects a duplicate version).
+#
+# Trusted publishing requires npm CLI >= 11.5.1; Node 24 bundles npm 11.
+# Provenance attestations are generated automatically under trusted publishing.
 
 on:
   release:
@@ -18,7 +22,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write   # enables npm provenance
+  id-token: write   # required for OIDC trusted publishing
 
 jobs:
   publish:
@@ -30,12 +34,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org
 
       # No runtime dependencies; prepublishOnly regenerates the per-harness output,
       # so a plain publish is enough. (npm ci is skipped because there is no lockfile.)
       - name: Publish
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
