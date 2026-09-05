@@ -36,7 +36,7 @@ Job postings move through these stages:
   move — do not reduce a rejection to just a folder change.
 - **`job-postings/archived/`** — Looked at but **decided not to apply** (fails a hard
   constraint, below level, off-profile). Distinct from `lost/`: nothing was submitted. Future
-  `{{command_prefix}}find-jobs` sweeps treat archived roles as already-seen, so they will not
+  `/find-jobs` sweeps treat archived roles as already-seen, so they will not
   resurface.
 
 ## Usage

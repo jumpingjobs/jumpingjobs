@@ -46,7 +46,7 @@ Keep the two from drifting: when content changes, update `profile.md`, not the H
 - **Serve** — `tune-resume`, `assess-job`, and `find-jobs` should read `profile.md` first.
   Constraints in the profile are what stop us surfacing bad-fit roles (e.g. degree-gated or
   language-gated roles).
-- **Feed back** — **after every `{{command_prefix}}tune-resume`**, fold any new insight the
+- **Feed back** — **after every `/tune-resume`**, fold any new insight the
   tuning conversation surfaced (corrected dates, real metrics, a tool used or not, a newly
   stated constraint or strength) back into `profile.md`. The tuning dialogue is one of the
   richest sources of profile updates. Never let an insight live only inside a single tuned
@@ -140,7 +140,7 @@ reducing it to "got rejected") wastes the most expensive signal the search produ
 6. **Write it into `## Interview feedback & recurring patterns`** (create the section if
    absent) and add a dated `## Change log` line. If the feedback reveals a genuine hard
    constraint or a durable strength/weakness, also update those sections so
-   `{{command_prefix}}tune-resume` and `{{command_prefix}}assess-job` benefit.
+   `/tune-resume` and `/assess-job` benefit.
 7. **Keep the counterweight honest.** Do not over-fit the profile to a single rejection —
    candidates and recruiters both over-weight one bad stretch. Record the two-sided read:
    what is real signal, what is likely noise, and how confident we are.

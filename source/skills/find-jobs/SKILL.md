@@ -69,11 +69,11 @@ one-line tally: N new, N saved, N already-tracked.
 
 ## 4. Scrape the new ones
 
-For each new role the user wants saved, run **`{{command_prefix}}scrape-job`** on its URL
+For each new role the user wants saved, run **`/scrape-job`** on its URL
 (fetching the single ad page works fine even though search pages do not). Save with the
 `YYYYMMDD-<company>-<job-title>.md` pattern (today's date). Add a `## Notes` section flagging
-any hard-constraint hits and a one-line fit read. Then offer `{{command_prefix}}assess-job` and
-`{{command_prefix}}tune-resume`.
+any hard-constraint hits and a one-line fit read. Then offer `/assess-job` and
+`/tune-resume`.
 
 ## 5. Keep the profile current
 

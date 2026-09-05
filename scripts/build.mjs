@@ -14,8 +14,8 @@ import {
 } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PROVIDERS } from './lib/providers.mjs';
-import { parseSkill, replacePlaceholders, assembleSkill, listDirs } from './lib/utils.mjs';
+import { PROVIDERS, NEUTRAL_PREFIX } from './lib/providers.mjs';
+import { parseSkill, applyCommandPrefix, assembleSkill, listDirs, listFiles } from './lib/utils.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const SRC_SKILLS = join(ROOT, 'source', 'skills');
@@ -32,26 +32,30 @@ function cleanGenerated() {
   }
 }
 
-function buildSkillForProvider(skillName, provider) {
-  const { configDir, placeholders } = provider;
+function buildSkillForProvider(skillName, provider, skillNames) {
+  const { configDir, commandPrefix } = provider;
   const srcDir = join(SRC_SKILLS, skillName);
   const outDir = join(ROOT, configDir, 'skills', skillName);
   mkdirSync(outDir, { recursive: true });
 
-  // 1. SKILL.md — replace placeholders in body (and frontmatter, harmless).
+  // 1. SKILL.md — rewrite slash commands into this harness's spelling (no-op for "/").
   const raw = readFileSync(join(srcDir, 'SKILL.md'), 'utf8');
   const { frontmatter, body } = parseSkill(raw);
-  const outBody = replacePlaceholders(body, placeholders);
-  const outFront = replacePlaceholders(frontmatter, placeholders);
+  const outBody = applyCommandPrefix(body, commandPrefix, skillNames);
+  const outFront = applyCommandPrefix(frontmatter, commandPrefix, skillNames);
   writeFileSync(join(outDir, 'SKILL.md'), assembleSkill(outFront, outBody));
 
-  // 2. Copy sibling reference/ and scripts/ directories verbatim, with placeholder
-  //    substitution applied to .md reference files.
+  // 2. Copy sibling reference/ and scripts/ directories, applying the same slash-command
+  //    rewrite to .md files (other files are copied verbatim).
   for (const sib of ['reference', 'scripts']) {
     const sibSrc = join(srcDir, sib);
     if (!existsSync(sibSrc)) continue;
     const sibOut = join(outDir, sib);
     cpSync(sibSrc, sibOut, { recursive: true });
+    if (commandPrefix === NEUTRAL_PREFIX) continue;
+    for (const f of listFiles(sibOut).filter((p) => p.endsWith('.md'))) {
+      writeFileSync(f, applyCommandPrefix(readFileSync(f, 'utf8'), commandPrefix, skillNames));
+    }
   }
 }
 
@@ -64,7 +68,7 @@ function build() {
   console.log(`Building ${skills.length} skill(s) for ${Object.keys(PROVIDERS).length} provider(s)...\n`);
 
   for (const [key, provider] of Object.entries(PROVIDERS)) {
-    for (const skill of skills) buildSkillForProvider(skill, provider);
+    for (const skill of skills) buildSkillForProvider(skill, provider, skills);
     console.log(`  ${provider.configDir.padEnd(10)} ${provider.displayName} — ${skills.length} skills`);
   }
 

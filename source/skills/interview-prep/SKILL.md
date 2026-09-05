@@ -32,7 +32,7 @@ dossier and a condensed, scannable cheat sheet.
    clean, then synthesize.
 5. Produce the two output files (see Output Files). Save both in the same folder as the job
    posting (move the posting to `interview/` first if it is not already, via
-   `{{command_prefix}}move-job`).
+   `/move-job`).
 6. After writing, show the cheat sheet in the chat and summarize the key points. Offer to fold
    durable, non-obvious findings (leadership-turnover patterns, financial red flags,
    competitive benchmarks) back into `profile.md` or a company note so they survive past this

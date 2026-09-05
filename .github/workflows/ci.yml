@@ -1,9 +1,12 @@
 name: CI
 
 # Runs on every push and pull request:
-#   1. Validates manifests + skill frontmatter (npm run check).
-#   2. Rebuilds the per-harness output from source/ and fails if it differs from what is
-#      committed (drift guard) -- so the generated trees can never fall out of sync with source.
+#   1. Validates the committed source on its own (manifests, versions, skill frontmatter).
+#   2. Builds every harness tree from source/ and re-validates, so a source change that
+#      cannot be generated for some harness fails here rather than at publish time.
+#
+# Generated trees are not committed, so there is no drift to guard against -- the build is
+# run from scratch on every CI run and again by `prepublishOnly` when publishing.
 
 on:
   push:
@@ -25,15 +28,22 @@ jobs:
         with:
           node-version: 20
 
-      - name: Validate manifests and skills
+      - name: Validate committed source
+        run: npm run check -- --source-only
+
+      - name: Build all harness trees
+        run: npm run build
+
+      - name: Validate generated output
         run: npm run check
 
-      - name: Rebuild from source and check for drift
+      - name: Verify the npm tarball ships every harness
         run: |
-          npm run build
-          if ! git diff --quiet; then
-            echo "::error::Generated harness output is out of sync with source/. Run 'npm run build' and commit the result."
-            git --no-pager diff --stat
-            exit 1
-          fi
-          echo "Generated output matches source."
+          npm pack --dry-run --json > /tmp/pack.json
+          for dir in .claude .cursor .github .gemini .codex .opencode .kiro .agents; do
+            if ! grep -q "\"$dir/skills/" /tmp/pack.json; then
+              echo "::error::$dir/skills is missing from the npm tarball"
+              exit 1
+            fi
+          done
+          echo "All 8 harness trees present in the tarball."

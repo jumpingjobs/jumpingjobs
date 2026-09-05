@@ -2,54 +2,59 @@
 // Adding a new harness = one entry here. The build loop in scripts/build.mjs picks it up.
 //
 // Each entry:
-//   configDir    - the dot-directory the harness reads skills from
-//   displayName  - human label for build logs
-//   placeholders - values substituted into {{...}} tokens in skill bodies
+//   configDir     - the dot-directory the harness reads skills from
+//   displayName   - human label for build logs
+//   commandPrefix - how this harness spells a slash command ("/" for most, "$" for Codex)
 //
-// Placeholders currently used by the source skills:
-//   {{command_prefix}} - slash-command prefix ("/" for most, "$" for Codex)
-//   {{model}}          - provider model family name (for prose that names the assistant)
+// source/skills/ is written in the neutral form — "/find-jobs" — and is therefore directly
+// readable by any harness whose commandPrefix is "/" (which is why the native Claude plugin
+// in .claude-plugin/plugin.json can point straight at source/skills/ with no build step).
+// The build only *rewrites* for harnesses that diverge from the neutral form.
 
 export const PROVIDERS = {
   claude: {
     configDir: '.claude',
     displayName: 'Claude Code',
-    placeholders: { command_prefix: '/', model: 'Claude' },
+    commandPrefix: '/',
   },
   cursor: {
     configDir: '.cursor',
     displayName: 'Cursor',
-    placeholders: { command_prefix: '/', model: 'the agent' },
+    commandPrefix: '/',
   },
   copilot: {
     configDir: '.github',
     displayName: 'GitHub Copilot (VS Code)',
-    placeholders: { command_prefix: '/', model: 'Copilot' },
+    commandPrefix: '/',
   },
   gemini: {
     configDir: '.gemini',
     displayName: 'Gemini CLI',
-    placeholders: { command_prefix: '/', model: 'Gemini' },
+    commandPrefix: '/',
   },
   codex: {
     configDir: '.codex',
     displayName: 'Codex CLI',
-    placeholders: { command_prefix: '$', model: 'GPT' },
+    commandPrefix: '$',
   },
   opencode: {
     configDir: '.opencode',
     displayName: 'OpenCode',
-    placeholders: { command_prefix: '/', model: 'the agent' },
+    commandPrefix: '/',
   },
   kiro: {
     configDir: '.kiro',
     displayName: 'Kiro',
-    placeholders: { command_prefix: '/', model: 'the agent' },
+    commandPrefix: '/',
   },
   // Generic Agent Skills layout (open standard: https://agentskills.io)
   agents: {
     configDir: '.agents',
     displayName: 'Agent Skills (generic)',
-    placeholders: { command_prefix: '/', model: 'the agent' },
+    commandPrefix: '/',
   },
 };
+
+// The neutral prefix used in source/skills/. A provider whose commandPrefix equals this
+// needs no rewriting at all.
+export const NEUTRAL_PREFIX = '/';

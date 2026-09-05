@@ -43,7 +43,7 @@ embedded in a posting note, migrate it to its own file the next time you touch i
    most reliable for JS-rendered pages; plain fetch works for simple pages). Pull: the company
    about page (team, mission, product, scale), the company registry for its jurisdiction for
    financials where applicable (SEC EDGAR, Companies House, your national register — same
-   sources as `{{command_prefix}}interview-prep`), recent funding/news. Public profiles of the
+   sources as `/interview-prep`), recent funding/news. Public profiles of the
    interviewer where available. Cite sources as links.
 4. **The applicant's profile** — `resume/<slug>/profile.md` for their real strengths, metrics,
    and **hard constraints / honest gaps** (never fabricate; same honesty bar as resume tuning).

@@ -46,18 +46,18 @@ does not re-implement the profile questionnaire (that lives in the `applicant-pr
    clarifying-question interview section by section to deepen and correct it. Keep it verbose.
 
 5. **Offer a first resume pass.** Once `profile.md` has real content, offer to fill the resume
-   template from it by running `{{command_prefix}}tune-resume` with no specific posting — this
+   template from it by running `/tune-resume` with no specific posting — this
    produces a clean master resume at `resume/<slug>/<slug>-resume.html`. (A posting-specific
    tuned resume is produced later, per application.)
 
 6. **Print next steps.** Tell the user the workspace is ready and point them at the workflow:
-   - `{{command_prefix}}find-jobs` — sweep configured boards for new roles
-   - `{{command_prefix}}scrape-job <url>` — save a specific posting
-   - `{{command_prefix}}assess-job` — score fit against the profile
-   - `{{command_prefix}}tune-resume` — tailor the resume to a posting
-   - `{{command_prefix}}interview-prep` / `{{command_prefix}}interview-cheatsheet` — prep once an
+   - `/find-jobs` — sweep configured boards for new roles
+   - `/scrape-job <url>` — save a specific posting
+   - `/assess-job` — score fit against the profile
+   - `/tune-resume` — tailor the resume to a posting
+   - `/interview-prep` / `/interview-cheatsheet` — prep once an
      interview is booked
-   - `{{command_prefix}}move-job` — move a posting through applied / interview / lost / archived
+   - `/move-job` — move a posting through applied / interview / lost / archived
 
 ## Notes
 

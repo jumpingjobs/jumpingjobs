@@ -87,4 +87,4 @@ Scrape a job posting URL and save it as a structured Markdown file in the job-po
 8. Add a `## Notes` section flagging any hard-constraint hits against `profile.md` (language,
    degree, salary floor, location) and a one-line fit read.
 9. Confirm the file was created and ask if the user wants to assess fit with
-   `{{command_prefix}}assess-job` or tailor their resume with `{{command_prefix}}tune-resume`.
+   `/assess-job` or tailor their resume with `/tune-resume`.

@@ -2,14 +2,16 @@ node_modules/
 *.log
 .DS_Store
 
-# Generated per-harness output is committed (clone-and-go + native Claude plugin needs it).
-# Regenerate with `npm run build`. If you prefer not to commit it, uncomment below and ship
-# only `source/` + the build:
-# .claude/skills/
-# .cursor/skills/
-# .github/skills/
-# .gemini/skills/
-# .codex/skills/
-# .opencode/skills/
-# .kiro/skills/
-# .agents/skills/
+# Generated per-harness output — NOT committed. source/skills/ is the only copy in git.
+# Regenerate locally with `npm run build`; `prepublishOnly` regenerates it for the npm
+# tarball, so published packages always ship all harnesses.
+# (The native Claude plugin reads source/skills/ directly — see .claude-plugin/plugin.json —
+# so no generated tree needs to be committed for the marketplace install path.)
+.claude/skills/
+.cursor/skills/
+.github/skills/
+.gemini/skills/
+.codex/skills/
+.opencode/skills/
+.kiro/skills/
+.agents/skills/

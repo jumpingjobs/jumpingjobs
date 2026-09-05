@@ -26,14 +26,21 @@ license: MIT                     # optional
 ---
 ```
 
-### Body placeholders
+### Write the neutral form — no template tokens
 
-Bodies may use `{{tokens}}` that the build substitutes per harness:
+Source bodies are **literal, not templated**. Write slash commands the ordinary way:
 
-- `{{command_prefix}}` — `/` for most harnesses, `$` for Codex.
-- `{{model}}` — the assistant's name for prose (`Claude`, `Gemini`, `GPT`, or `the agent`).
+```
+Then offer `/assess-job` and `/tune-resume`.
+```
 
-Unknown tokens are left intact (so typos are visible, not silently blanked).
+`source/skills/` is read directly by Claude Code (see [Distribution](#distribution)), so a
+`{{token}}` left in source would reach the user verbatim. `npm run check` fails on any `{{...}}`
+in `source/`.
+
+The build rewrites the neutral `/command` form for harnesses that spell commands differently —
+today only Codex (`$assess-job`). Only the known skill names are rewritten, so slashes in prose,
+paths, and URLs are untouched.
 
 ## Build
 
@@ -46,12 +53,20 @@ npm run rebuild    # clean + build
 Pure Node (>=18), no dependencies. The build:
 
 1. reads every `source/skills/<name>/SKILL.md`,
-2. substitutes placeholders for each provider,
+2. rewrites slash commands into each provider's spelling (a no-op for the seven `/` harnesses),
 3. writes `<configDir>/skills/<name>/SKILL.md` (plus any `reference/`, `scripts/` siblings).
 
-Generated trees are committed so the repo is clone-and-go and so the native Claude plugin (which
-reads `./.claude/skills/` via `.claude-plugin/plugin.json`) works without a build step on the
-user's side. To ship source-only instead, see the commented block in `.gitignore`.
+**Generated trees are not committed** — `source/skills/` is the only copy in git. They are
+regenerated on demand:
+
+- `prepublishOnly` rebuilds them, so every npm tarball ships all eight harnesses.
+- `bin/jumpingjobs.mjs` builds them on the fly if they are missing, so `install` works from a
+  bare clone.
+- CI builds and validates them on every push.
+
+This keeps a one-line skill edit a one-line diff rather than an eight-file one. The trade-off:
+the trees you can browse on GitHub are gone, so read `source/` (or build locally) to see what
+a harness actually receives.
 
 ## Adding a harness
 
@@ -61,7 +76,7 @@ Add one entry to `PROVIDERS` in `scripts/lib/providers.mjs`:
 myharness: {
   configDir: '.myharness',
   displayName: 'My Harness',
-  placeholders: { command_prefix: '/', model: 'the agent' },
+  commandPrefix: '/',        // '$' etc. if it does not use slash commands
 },
 ```
 
@@ -72,8 +87,11 @@ detection marker to `detectHarness()` there if the harness keeps a recognizable 
 
 - **Claude Code:** `.claude-plugin/marketplace.json` makes the repo a marketplace; the single
   plugin's `source` is the repo root. Install: `/plugin marketplace add jumpingjobs/jumpingjobs`.
+  A marketplace install is a plain git clone with **no build step**, which is why
+  `plugin.json` points `skills` at `./source/skills/` — a committed directory. Never repoint it
+  at a generated tree; `npm run check` enforces this.
 - **Other harnesses:** `npx jumpingjobs install` detects the harness and copies the matching
-  generated `skills/` tree into the project.
+  generated `skills/` tree into the project (building it first if absent).
 
 ## Repository structure
 
@@ -81,15 +99,16 @@ detection marker to `detectHarness()` there if the harness keeps a recognizable 
 .
   .claude-plugin/
     marketplace.json     # marketplace catalog (Claude Code)
-    plugin.json          # plugin metadata; skills -> ./.claude/skills/
-  source/skills/         # SOURCE OF TRUTH — edit these
+    plugin.json          # plugin metadata; skills -> ./source/skills/
+  source/skills/         # SOURCE OF TRUTH — the only skill copy in git; edit these
   templates/             # resume.template.html, profile.example.md, job-boards.example.md
   scripts/
     build.mjs            # build orchestrator
+    check.mjs            # validation (manifests, versions, source, generated output)
     lib/providers.mjs    # harness config map (add a harness here)
-    lib/utils.mjs        # frontmatter parse + placeholder substitution
+    lib/utils.mjs        # frontmatter parse + slash-command rewrite
   bin/jumpingjobs.mjs    # installer CLI
-  .claude/ .cursor/ ...  # GENERATED per-harness output (do not edit by hand)
+  .claude/ .cursor/ ...  # GENERATED, gitignored — `npm run build` to materialize
   README.md  LICENSE  package.json
 ```
 

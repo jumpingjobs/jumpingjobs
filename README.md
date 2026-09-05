@@ -127,8 +127,9 @@ npm run check      # validate manifests + skills
 npm run rebuild    # clean + build
 ```
 
-CI validates every push and fails if the committed harness trees drift from `source/`. See
-[docs/DEVELOP.md](docs/DEVELOP.md) for the architecture and how to add a harness.
+Edit `source/` only — the per-harness trees are generated and gitignored, rebuilt automatically
+when the package is published and by the installer when missing. CI builds and validates them on
+every push. See [docs/DEVELOP.md](docs/DEVELOP.md) for the architecture and how to add a harness.
 
 ## License
 
