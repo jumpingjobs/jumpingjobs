@@ -2,9 +2,9 @@
 name: move-job
 description: >-
   Move a job posting (and its tuned resume if one exists) to a status folder in the pipeline:
-  applied, interview, lost, or archived. Triggers: "move <job> to applied", "<job> got an
-  interview", "rejected from <job>", "withdraw <job>", "archive <job>", "not worth applying
-  to <job>".
+  applied, interview, lost, archived, or won. Triggers: "move <job> to applied", "<job> got
+  an interview", "rejected from <job>", "withdraw <job>", "archive <job>", "not worth
+  applying to <job>", "I accepted the <job> offer".
 user-invocable: true
 argument-hint: "[job] [status]"
 license: MIT
@@ -19,8 +19,8 @@ Move a job posting (and its tuned resume if one exists) to a status folder.
 1. Take the user's input as a job posting name or filename, and a target status.
 2. Look up the job posting in the applicant's `job-postings/` directory (e.g.
    `resume/<slug>/job-postings/`; with several applicant workspaces, use the one named or
-   implied — otherwise ask). Check all five stage folders: `1-scraped/`, `2-applied/`,
-   `3-interview/`, `4-lost/`, `5-archived/` (and the root, for strays).
+   implied — otherwise ask). Check all stage folders: `1-scraped/`, `2-applied/`,
+   `3-interview/`, `4-lost/`, `5-archived/`, `6-won/` (and the root, for strays).
 3. Move **every file that shares the posting's slug prefix** to the target status folder —
    the posting `.md`, the tuned resume `.html`, and any `-cheatsheet.md`,
    `-interview-prep.md`, `-debrief.md`, `-cover.md`, or other `<slug>-*` artifact. List the current folder
@@ -45,6 +45,10 @@ pipeline order in file browsers — keep them.
   constraint, below level, off-profile). Distinct from `4-lost/`: nothing was submitted.
   Future `/find-jobs` sweeps treat archived roles as already-seen, so they will not
   resurface.
+- **`job-postings/6-won/`** — **Offer accepted.** The search's happy ending; create the
+  folder on first use if it does not exist. Moving a posting here should be paired with the
+  `assess-offer` follow-through: update `profile.md` (the accepted role is the new current
+  role) and offer to withdraw the other active processes.
 
 **Migration:** if the workspace still has the old layout (postings loose in the
 `job-postings/` root, and/or un-numbered `applied/`, `interview/`, `lost/`, `archived/`

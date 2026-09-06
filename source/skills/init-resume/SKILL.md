@@ -30,6 +30,7 @@ does not re-implement the profile questionnaire (that lives in the `applicant-pr
    resume/<slug>/job-postings/3-interview/
    resume/<slug>/job-postings/4-lost/
    resume/<slug>/job-postings/5-archived/
+   resume/<slug>/job-postings/6-won/
    ```
 
 3. **Drop in the templates.** They live in the installed package's `templates/` directory —
@@ -60,6 +61,7 @@ does not re-implement the profile questionnaire (that lives in the `applicant-pr
    - `/interview-prep` / `/interview-cheatsheet` — prep once an
      interview is booked
    - `/interview-debrief` — capture each round right after it happens
+   - `/assess-offer` — extract, evaluate, and respond to an offer
    - `/move-job` — move a posting through applied / interview / lost / archived
 
 ## Notes

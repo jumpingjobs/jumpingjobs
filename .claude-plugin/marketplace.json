@@ -12,7 +12,7 @@
     {
       "name": "jumpingjobs",
       "description": "Job search and resume toolkit: 1 onboarding command, 6 workflow commands, and 2 skills. Build a profile.md source of truth, find/scrape/assess jobs, tune your resume to each posting, and generate interview prep.",
-      "version": "0.1.7",
+      "version": "0.1.8",
       "author": {
         "name": "Nicholas Kristoffersen",
         "email": "nick@kristoffersen.io"

@@ -85,7 +85,9 @@ A debrief that only sits in a file changed nothing. Before finishing:
    draft a thank-you / follow-up note while the details are fresh.
 4. **Terminal rounds end the pipeline honestly.** Rejected in the room, or withdrawing?
    Move the posting via `move-job` and capture any feedback via `applicant-profile` — the
-   debrief does not replace those steps.
+   debrief does not replace those steps. An **offer** on the table (or clearly coming)?
+   Point at the `assess-offer` skill — it reads this debrief to check the written terms
+   against what was promised verbally.
 
 ## Conventions
 

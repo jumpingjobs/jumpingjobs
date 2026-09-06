@@ -14,7 +14,7 @@ Works in Claude Code, Cursor, GitHub Copilot, Gemini CLI, Codex CLI, OpenCode, a
 
 ## What it is
 
-One onboarding command, seven workflow commands, and two supporting skills:
+One onboarding command, eight workflow commands, and two supporting skills:
 
 | Command | What it does |
 |---|---|
@@ -25,6 +25,7 @@ One onboarding command, seven workflow commands, and two supporting skills:
 | `/tune-resume` | Tailors your resume to a posting (2 pages, honest, targeted). |
 | `/interview-prep` | Deep company research into a full dossier plus a condensed cheat sheet. |
 | `/interview-debrief` | Captures a round right after it happens — questions, stumbles, signals — and turns stumbles into next-round prep. |
+| `/assess-offer` | Extracts every term from an offer letter, flags gaps and red flags, checks written terms against verbal promises, plans the negotiation and drafts the response. |
 | `/move-job` | Moves a posting through the numbered pipeline stages, taking its whole file family along. |
 
 The two skills the commands rely on: **applicant-profile** (maintains `profile.md`, your source
@@ -83,7 +84,7 @@ resume/<your-slug>/
   <your-slug>-resume.html    # layout skeleton tune-resume fills per posting
   job-boards.md              # your boards + search config (edit for your market)
   job-postings/              # numbered so folders sort in pipeline order
-    1-scraped/  2-applied/  3-interview/  4-lost/  5-archived/
+    1-scraped/  2-applied/  3-interview/  4-lost/  5-archived/  6-won/
 ```
 
 ### profile.md is the source of truth
