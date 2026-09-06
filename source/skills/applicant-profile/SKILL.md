@@ -114,7 +114,10 @@ Keep the two from drifting: when content changes, update `profile.md`, not the H
 
 **Trigger this whenever an interview produces feedback** — a rejection email with reasons,
 verbal feedback relayed after a call, a recruiter's "they felt that...", or even the
-applicant's own fresh self-assessment right after a round. This is one of the highest-value
+applicant's own fresh self-assessment right after a round (the `interview-debrief` skill
+captures that per-round record in `<slug>-debrief.md` and hands recurring patterns here;
+mark self-reported items as such — external feedback and self-assessment are weighed
+differently). This is one of the highest-value
 inputs to the profile: it is external, specific, and tells us what to fix. Losing it (or
 reducing it to "got rejected") wastes the most expensive signal the search produces.
 
@@ -134,7 +137,8 @@ reducing it to "got rejected") wastes the most expensive signal the search produ
    the applicant is strong at, it is almost always a demonstration gap, and that is a
    coachable, high-leverage fix.
 4. **Cross-reference against prior feedback — this is the whole point.** Read the existing
-   `## Interview feedback & recurring patterns` section before writing. If a *new* rejection
+   `## Interview feedback & recurring patterns` section — and the applicant's
+   `*-debrief.md` files across postings — before writing. If a *new* rejection
    echoes an *old* one (e.g. "too startup-scale" appearing at two different companies), that
    is a **recurring pattern** and must be elevated and marked as such — a repeated signal from
    independent sources is far stronger than either instance alone, and is the thing most worth

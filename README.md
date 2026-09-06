@@ -14,7 +14,7 @@ Works in Claude Code, Cursor, GitHub Copilot, Gemini CLI, Codex CLI, OpenCode, a
 
 ## What it is
 
-One onboarding command, six workflow commands, and two supporting skills:
+One onboarding command, seven workflow commands, and two supporting skills:
 
 | Command | What it does |
 |---|---|
@@ -24,7 +24,8 @@ One onboarding command, six workflow commands, and two supporting skills:
 | `/assess-job` | Scores a posting's fit against your profile and hard constraints. |
 | `/tune-resume` | Tailors your resume to a posting (2 pages, honest, targeted). |
 | `/interview-prep` | Deep company research into a full dossier plus a condensed cheat sheet. |
-| `/move-job` | Moves a posting through applied / interview / lost / archived. |
+| `/interview-debrief` | Captures a round right after it happens — questions, stumbles, signals — and turns stumbles into next-round prep. |
+| `/move-job` | Moves a posting through the numbered pipeline stages, taking its whole file family along. |
 
 The two skills the commands rely on: **applicant-profile** (maintains `profile.md`, your source
 of truth) and **interview-cheatsheet** (a tight, in-the-room prep sheet).

@@ -59,6 +59,7 @@ does not re-implement the profile questionnaire (that lives in the `applicant-pr
    - `/tune-resume` — tailor the resume to a posting
    - `/interview-prep` / `/interview-cheatsheet` — prep once an
      interview is booked
+   - `/interview-debrief` — capture each round right after it happens
    - `/move-job` — move a posting through applied / interview / lost / archived
 
 ## Notes

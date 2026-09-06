@@ -25,8 +25,11 @@ dossier and a condensed, scannable cheat sheet.
 2. Read the job posting. Note the company, role, the interviewer/contact, the deadline/interview
    date, and the tech stack.
 3. Resolve the applicant from the posting's location (with several `resume/<slug>/`
-   workspaces, the posting's tree names the applicant; if still ambiguous, ask). Read the
-   applicant's current resume (e.g. `resume/<slug>/<slug>-resume.html`) and
+   workspaces, the posting's tree names the applicant; if still ambiguous, ask). **If a
+   `<slug>-debrief.md` exists, read it first** — this is a later round, and the previous
+   round's questions, stumbles, and probing (captured by the `interview-debrief` skill) are
+   the strongest predictor of what comes next; build the prep around fixing what stumbled.
+   Read the applicant's current resume (e.g. `resume/<slug>/<slug>-resume.html`) and
    `profile.md` so the self-positioning is grounded in their real experience, not generic
    advice.
 4. Do deep research (see Research Plan). Prefer launching parallel research agents for

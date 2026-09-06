@@ -45,6 +45,7 @@ Scrape a job posting URL and save it as a structured Markdown file in the job-po
    - `<slug>.html` — the tuned resume (`tune-resume`)
    - `<slug>-cheatsheet.md` — interview cheat sheet (`interview-cheatsheet`)
    - `<slug>-interview-prep.md` — interview dossier (`interview-prep`)
+   - `<slug>-debrief.md` — post-interview debriefs, one section per round (`interview-debrief`)
    - `<slug>-cover.md` — cover letter, and any other derived file: `<slug>-<what>.md`
    Never re-derive the slug from the posting title, re-spell the company, or re-date it — a
    revived or re-scraped role keeps its **original** date. Files that share the prefix sort

@@ -23,7 +23,7 @@ Move a job posting (and its tuned resume if one exists) to a status folder.
    `3-interview/`, `4-lost/`, `5-archived/` (and the root, for strays).
 3. Move **every file that shares the posting's slug prefix** to the target status folder —
    the posting `.md`, the tuned resume `.html`, and any `-cheatsheet.md`,
-   `-interview-prep.md`, `-cover.md`, or other `<slug>-*` artifact. List the current folder
+   `-interview-prep.md`, `-debrief.md`, `-cover.md`, or other `<slug>-*` artifact. List the current folder
    for `<slug>*` before moving so nothing is left behind; a stranded artifact loses its
    posting. Never rename any of them in transit — the `YYYYMMDD-company-role` prefix is the
    posting's permanent identity and is what keeps the family grouped.
