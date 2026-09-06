@@ -15,6 +15,9 @@ Assess how relevant a job posting is to the applicant's experience, wants, and n
 
 ## Applicant profile
 
+A workspace can hold several applicants, one per `resume/<slug>/` folder — if more than one
+exists, use the applicant named in the request or obvious from context, otherwise ask.
+
 Read the applicant's **`profile.md`** (e.g. `resume/<slug>/profile.md`) — it is the source of
 truth for background, preferences, and especially **`## Hard constraints & filters`** (degree
 requirements, language dealbreakers, salary floor, location, contract type). Base the

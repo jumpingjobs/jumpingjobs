@@ -19,8 +19,11 @@ license: MIT
 # Applicant Profile
 
 The job-search workspace lives under `resume/<applicant-slug>/` (e.g. `resume/jane-doe/`).
-Each applicant has **one `profile.md`** that is the verbose, durable source of truth for
-everything we know about them.
+**A workspace can hold several applicants side by side** — each gets their own folder, and
+each has **one `profile.md`** that is the verbose, durable source of truth for everything we
+know about them. When more than one applicant exists, work with the one named in the request
+or obvious from context — otherwise ask — and never write one applicant's facts into
+another's profile.
 
 ## Why this exists
 

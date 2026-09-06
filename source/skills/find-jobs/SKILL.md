@@ -29,6 +29,9 @@ scraped, filter to the applicant's profile, and save the genuinely-new ones.
 
 ## 0. Load context first
 
+0. **Resolve the applicant.** A workspace can hold several applicants, one per
+   `resume/<slug>/` folder. One exists -> use it. Several -> use the one named in the request
+   or obvious from context, otherwise ask. Never mix applicants' files.
 1. Read the applicant's **`profile.md`** (e.g. `resume/<slug>/profile.md`) — especially
    **`## Hard constraints & filters`** (degree, language, salary floor, location) and the
    stated preferences. These gate what counts as a hit.

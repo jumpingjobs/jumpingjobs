@@ -20,7 +20,9 @@ Fine-tune the resume HTML to better match a specific job posting.
      (e.g. `resume/<slug>/job-postings/`)
    - A URL to a job posting (fetch and analyze it)
    - A job title/company name to look up in the applicant's `job-postings/` directory
-2. Read the applicant's **`profile.md`** (e.g. `resume/<slug>/profile.md`) — this is the
+2. Resolve the applicant: a workspace can hold several (`resume/<slug>/` each) — with more
+   than one, use the applicant named in the request or implied by the posting's location,
+   otherwise ask. Then read the applicant's **`profile.md`** (`resume/<slug>/profile.md`) — this is the
    verbose **source of truth for content**. Pull accurate detail, metrics, and constraints from
    it. Also read the base resume HTML (e.g. `resume/<slug>/<slug>-resume.html`), which is the
    **layout/formatting skeleton** to copy — NOT a content source; its bullets are already

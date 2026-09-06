@@ -18,7 +18,8 @@ Move a job posting (and its tuned resume if one exists) to a status folder.
 
 1. Take the user's input as a job posting name or filename, and a target status.
 2. Look up the job posting in the applicant's `job-postings/` directory (e.g.
-   `resume/<slug>/job-postings/`). Check all five stage folders: `1-scraped/`, `2-applied/`,
+   `resume/<slug>/job-postings/`; with several applicant workspaces, use the one named or
+   implied — otherwise ask). Check all five stage folders: `1-scraped/`, `2-applied/`,
    `3-interview/`, `4-lost/`, `5-archived/` (and the root, for strays).
 3. Move **every file that shares the posting's slug prefix** to the target status folder —
    the posting `.md`, the tuned resume `.html`, and any `-cheatsheet.md`,
