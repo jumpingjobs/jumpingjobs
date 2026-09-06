@@ -84,7 +84,8 @@ Research these threads. Run independent ones in parallel. Cite sources as Markdo
 
 ## Output Files
 
-Name both after the job posting's basename:
+Name both after the job posting's basename — copy its actual filename character-for-character
+(never re-derive it from the title), so the whole family stays grouped:
 - `<basename>-interview-prep.md` — the full dossier
 - `<basename>-cheatsheet.md` — the condensed one-pager
 

@@ -26,8 +26,9 @@ embedded in a posting note, migrate it to its own file the next time you touch i
 - **Location:** the **same folder as the job posting** (usually
   `resume/<slug>/job-postings/3-interview/`, since a cheat sheet means an interview is
   happening).
-- **Name:** the posting slug + `-cheatsheet.md`. The posting `.md`, the tuned resume `.html`,
-  and the cheat sheet `.md` then share one slug, e.g.:
+- **Name:** the posting slug + `-cheatsheet.md` — copy the posting's actual filename
+  character-for-character, never re-derive it from the job title. The posting `.md`, the tuned
+  resume `.html`, and the cheat sheet `.md` then share one slug and stay grouped, e.g.:
   - `20260606-acme-staff-engineer.md` (posting)
   - `20260606-acme-staff-engineer.html` (resume)
   - `20260606-acme-staff-engineer-cheatsheet.md` (cheat sheet) <- this skill

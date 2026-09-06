@@ -37,9 +37,18 @@ Scrape a job posting URL and save it as a structured Markdown file in the job-po
    `resume/<slug>/job-postings/1-scraped/`). Ask which applicant if unclear.
 6. Name the file using the pattern: `YYYYMMDD-<company>-<job-title>.md` (lowercase, hyphenated).
    The `YYYYMMDD` prefix is the **date the job is scraped/added** (use today's date) so
-   postings sort chronologically. Example: `20260606-acme-staff-engineer.md`. (A tuned resume
-   from `tune-resume` reuses this exact name with an `.html` extension, so the prefix carries
-   over.)
+   postings sort chronologically. Example: `20260606-acme-staff-engineer.md`.
+
+   **This slug is the posting's permanent identity.** Every artifact for the posting reuses it
+   *character-for-character* — the same date, company, and role spelling — plus a suffix:
+   - `<slug>.md` — the posting (this skill)
+   - `<slug>.html` — the tuned resume (`tune-resume`)
+   - `<slug>-cheatsheet.md` — interview cheat sheet (`interview-cheatsheet`)
+   - `<slug>-interview-prep.md` — interview dossier (`interview-prep`)
+   - `<slug>-cover.md` — cover letter, and any other derived file: `<slug>-<what>.md`
+   Never re-derive the slug from the posting title, re-spell the company, or re-date it — a
+   revived or re-scraped role keeps its **original** date. Files that share the prefix sort
+   together in the folder; a drifted prefix orphans the artifact.
 7. Use this structure for the file:
 
 ```
