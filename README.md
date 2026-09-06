@@ -81,8 +81,8 @@ resume/<your-slug>/
   profile.md                 # source of truth (verbose; you maintain this)
   <your-slug>-resume.html    # layout skeleton tune-resume fills per posting
   job-boards.md              # your boards + search config (edit for your market)
-  job-postings/
-    applied/  interview/  lost/  archived/
+  job-postings/              # numbered so folders sort in pipeline order
+    1-scraped/  2-applied/  3-interview/  4-lost/  5-archived/
 ```
 
 ### profile.md is the source of truth

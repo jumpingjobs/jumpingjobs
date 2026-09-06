@@ -25,10 +25,11 @@ does not re-implement the profile questionnaire (that lives in the `applicant-pr
    ```
    resume/<slug>/
    resume/<slug>/job-postings/
-   resume/<slug>/job-postings/applied/
-   resume/<slug>/job-postings/interview/
-   resume/<slug>/job-postings/lost/
-   resume/<slug>/job-postings/archived/
+   resume/<slug>/job-postings/1-scraped/
+   resume/<slug>/job-postings/2-applied/
+   resume/<slug>/job-postings/3-interview/
+   resume/<slug>/job-postings/4-lost/
+   resume/<slug>/job-postings/5-archived/
    ```
 
 3. **Drop in the templates.** They live in the installed package's `templates/` directory —

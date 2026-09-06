@@ -36,8 +36,10 @@ scraped, filter to the applicant's profile, and save the genuinely-new ones.
    lists the boards to search, the search URL pattern for each, default search terms, and the
    per-board DOM-extraction approach. **Boards are jurisdiction-specific** — the user maintains
    this file for their country/market.
-3. **Build the dedupe set:** list the applicant's `job-postings/` (and its `applied/`,
-   `interview/`, `lost/`, `archived/` subfolders) and note every `<company>` + `<role>`. Also
+3. **Build the dedupe set:** list the applicant's entire `job-postings/` tree — the stage
+   folders `1-scraped/`, `2-applied/`, `3-interview/`, `4-lost/`, `5-archived/`, plus the
+   root and any old un-numbered folders if the workspace predates the numbered layout — and
+   note every `<company>` + `<role>`. Also
    treat anything in the active interview pipeline as already-known. Never re-scrape a
    company+role already present.
 

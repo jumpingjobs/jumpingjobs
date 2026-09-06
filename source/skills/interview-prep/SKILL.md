@@ -18,10 +18,10 @@ dossier and a condensed, scannable cheat sheet.
 ## Instructions
 
 1. Take the user's input as either:
-   - A path to a job posting Markdown file (usually in `job-postings/interview/`)
+   - A path to a job posting Markdown file (usually in `job-postings/3-interview/`)
    - A URL to a job posting
-   - A job title/company name to look up in `job-postings/` (check root, `applied/`, and
-     `interview/`)
+   - A job title/company name to look up in `job-postings/` (check `1-scraped/`,
+     `2-applied/`, and `3-interview/`)
 2. Read the job posting. Note the company, role, the interviewer/contact, the deadline/interview
    date, and the tech stack.
 3. Read the applicant's current resume (e.g. `resume/<slug>/<slug>-resume.html`) and
@@ -31,7 +31,7 @@ dossier and a condensed, scannable cheat sheet.
    independent threads (company, people, financials, competitors) to keep the main context
    clean, then synthesize.
 5. Produce the two output files (see Output Files). Save both in the same folder as the job
-   posting (move the posting to `interview/` first if it is not already, via
+   posting (move the posting to `3-interview/` first if it is not already, via
    `/move-job`).
 6. After writing, show the cheat sheet in the chat and summarize the key points. Offer to fold
    durable, non-obvious findings (leadership-turnover patterns, financial red flags,

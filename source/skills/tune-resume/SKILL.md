@@ -75,8 +75,8 @@ differ), propose specific wording changes that:
 7. Wait for the user to approve or adjust before making any changes.
 8. Copy the base resume to a new HTML file. The filename MUST match the job posting Markdown
    filename but with an `.html` extension, saved in the **same directory as the job posting**.
-   For example, if the posting is `job-postings/20260606-acme-staff-engineer.md`, the tuned
-   resume is `job-postings/20260606-acme-staff-engineer.html`.
+   For example, if the posting is `job-postings/1-scraped/20260606-acme-staff-engineer.md`,
+   the tuned resume is `job-postings/1-scraped/20260606-acme-staff-engineer.html`.
 9. Apply approved changes to the new HTML file. Match the section structure of the base
    template exactly — do not invent new section names.
 10. **Verify the page count before reporting done.** Render the tuned HTML to PDF headlessly
