@@ -1,6 +1,6 @@
 {
   "name": "jumpingjobs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Job search and resume toolkit for AI coding agents (Claude Code, Cursor, Copilot, Gemini, Codex, and more).",
   "type": "module",
   "bin": {

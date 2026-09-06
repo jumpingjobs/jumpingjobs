@@ -61,8 +61,17 @@ Do not hardcode specific numbers or languages here — read them from `profile.m
 Rate each requirement against the applicant's background:
 - Requirement -> How the applicant's experience maps (or does not)
 
+### Trajectory
+One line comparing this role to the applicant's *current or most recent* role in `profile.md`:
+**step up**, **lateral**, or **step down** — judged on title seniority (IC → lead → head/
+director → VP/C-level), scope (team, budget, remit), and any listed compensation band. Say
+what makes it so. A step up is a real reason to apply and should carry weight in the verdict;
+a step down is worth naming plainly so the applicant chooses it knowingly rather than drifts
+into it.
+
 ### Verdict
 A 2-3 sentence honest summary. Is this worth applying to? What is the biggest risk and the
-biggest upside?
+biggest upside? If the role is a step up, lead with that — it is usually the upside that
+matters most.
 
 4. If multiple jobs are provided, assess each and rank them by fit.

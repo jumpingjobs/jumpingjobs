@@ -82,12 +82,25 @@ hands-on coding; check `profile.md` for whether the applicant is open to them. A
 constraints as **flags, not silent drops** — still surface a strong role that lists a blocking
 requirement, but mark the risk so the user decides.
 
+**Spot step-ups.** Compare each kept role against the applicant's *current or most recent*
+role in `profile.md`. A role is a **step up** when it clearly advances the trajectory:
+- a seniority jump in title (IC → lead, lead → head/director, head → VP/C-level);
+- materially bigger scope (larger team/org, budget ownership, broader remit); or
+- a listed compensation band clearly above the current level.
+A step up is not a fit override — an off-profile step up is still noise, and a step up that
+trips a hard constraint still carries its flag. But an *on-profile* step up deserves an
+explicit nudge, not a neutral row in a table.
+
 ## 3. Dedupe + present
 
 Remove anything in the dedupe set from step 0. Present a clean table grouped by board with
 **Role · Company · Location · fit / flag**, and explicitly list what was skipped as
-already-tracked. Recommend a few top picks on the applicant's stated priorities. Close with a
-one-line tally: N new, N saved, N already-tracked.
+already-tracked. Mark step-up roles visibly (e.g. **⬆ step up** in the fit column, with a
+half-line on *why* — the title jump, the scope, the band). Recommend a few top picks on the
+applicant's stated priorities, and if a step-up role is among the new hits, **say so directly
+in the recommendation** ("this one is a level above your current role — worth prioritizing")
+rather than leaving it implicit in the table. Close with a one-line tally: N new, N saved,
+N already-tracked.
 
 ## 4. Scrape the new ones
 
